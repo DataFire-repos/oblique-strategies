@@ -19,13 +19,17 @@ import {StrategyService} from './strategy/strategy.service';
         </div>
       </div>
     </div>
-    <div class="row mid-page text-center">
+    <div class="row mid-page">
       <div class="col-xs-12 col-md-8 col-md-offset-2">
         <div class="strategy-area">
           <strategy *ngIf="strategy" [strategy]="strategy"></strategy>
         </div>
-        <a class="btn btn-lg btn-primary" (click)="newStrategy()">Try another</a>
-        <a class="btn btn-lg btn-default">Submit a strategy</a>
+        <div class="text-center">
+          <a class="btn btn-lg btn-primary" (click)="newStrategy()">Try another</a>
+          <a class="btn btn-lg btn-default" [class.active]="showSubmit"
+              (click)="showSubmit = !showSubmit">Submit a strategy</a>
+        </div>
+        <add-strategy *ngIf="showSubmit"></add-strategy>
       </div>
     </div>
   </div>
@@ -45,8 +49,9 @@ import {StrategyService} from './strategy/strategy.service';
       height: 150px;
     }
 
-    strategy {
-      display: block;
+    add-strategy {
+      display:block;
+      margin-top: 50px;
     }
     .btn {
       min-width: 200px;
