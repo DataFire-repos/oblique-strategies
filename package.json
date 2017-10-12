@@ -54,6 +54,7 @@
     "bootstrap": "^3.3.7",
     "bootstrap-sass": "^3.3.7",
     "cpy-cli": "^1.0.1",
+    "fontawesome": "^4.7.2",
     "http-server": "^0.10.0",
     "jquery": "^3.2.1",
     "reflect-metadata": "^0.1.10",

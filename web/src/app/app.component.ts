@@ -22,8 +22,10 @@ import {StrategyService} from './strategy/strategy.service';
     </div>
     <div class="row mid-page text-center">
       <div class="col-xs-12 col-md-8 col-md-offset-2">
-        <strategy *ngIf="strategy" [strategy]="strategy"></strategy>
-        <a class="btn btn-lg btn-primary">Let's see another</a>
+        <div class="strategy-area">
+          <strategy *ngIf="strategy" [strategy]="strategy"></strategy>
+        </div>
+        <a class="btn btn-lg btn-primary" (click)="newStrategy()">Let's see another</a>
         <a class="btn btn-lg btn-default">Submit a strategy</a>
       </div>
     </div>
@@ -35,10 +37,17 @@ import {StrategyService} from './strategy/strategy.service';
       position: relative;
     }
     .mid-page {
-      display: block;
       position: absolute;
       top: 30%;
       width: 100%;
+    }
+
+    .strategy-area {
+      height: 150px;
+    }
+
+    strategy {
+      display: block;
     }
     .btn {
       min-width: 200px;
