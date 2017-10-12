@@ -12,7 +12,7 @@ const DATA_URL = "https://docs.google.com/spreadsheets/d/1Oy9fiRqmDQgLbTSjMyiYWX
         Once your strategy is approved it will appear here.
         You can also view a <a href="${DATA_URL}" target="_blank">list of all submissions</a>
       </p>
-      <form (submit)="strategies.addStrategy(strategy)">
+      <form (submit)="addStrategy()">
         <div class="form-group">
           <label>Strategy</label>
           <textarea class="form-control" [(ngModel)]="strategy.strategy" name="strategy">
