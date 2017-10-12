@@ -6,15 +6,22 @@ var google_sheets = require('@datafire/google_sheets').actions;
 module.exports = new datafire.Action({
   description: "Creates a new item in the spreadsheet",
   inputs: [{
-    title: "name",
+    title: "strategy",
     type: "string",
-    maxLength: 100,
+    maxLength: 140,
     minLength: 1
   }, {
-    title: "age",
-    type: "integer",
+    title: "author",
+    type: "string",
     minimum: 0,
-    maximum: 200
+    maximum: 200,
+    minLength: 1,
+    maxLength: 140
+  }, {
+    title: "link",
+    type: "string",
+    default: "",
+    maxLength: 273
   }],
   handler: (input, context) => {
     return datafire.flow(context)

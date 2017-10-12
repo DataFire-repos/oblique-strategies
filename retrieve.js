@@ -7,7 +7,7 @@ function getColumnLetter(idx) {
   return String.fromCharCode(idx + 64);
 }
 
-const PAGE_SIZE = 10;
+const PAGE_SIZE = 100;
 
 module.exports = new datafire.Action({
   description: "",
@@ -15,7 +15,7 @@ module.exports = new datafire.Action({
     let startRow = 1;
     let endRow = startRow + PAGE_SIZE - 1;
     let startCol = 1;
-    let endCol = inputs.length;
+    let endCol = inputs.length + 1;
     return datafire.flow(context)
       .then(_ => google_sheets.spreadsheets.values.get({
         spreadsheetId: context.variables.spreadsheet_id,
@@ -27,8 +27,9 @@ module.exports = new datafire.Action({
           inputs.forEach((input, idx) => {
             obj[input.title] = row[idx]
           });
+          obj.approved = row[inputs.length];
           return obj;
-        });
+        }).filter(obj => obj.approved);
         return rows;
       })
   },
