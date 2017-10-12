@@ -13,9 +13,8 @@ import {StrategyService} from './strategy/strategy.service';
           <p>
             Inspired by
             <a taget="_blank" href="https://en.wikipedia.org/wiki/Oblique_Strategies">
-              Oblique Strategies
-            </a>
-            by Brian Eno and Peter Schmidt
+              Oblique Strategies</a>,
+            from Brian Eno and Peter Schmidt
           </p>
         </div>
       </div>
@@ -25,7 +24,7 @@ import {StrategyService} from './strategy/strategy.service';
         <div class="strategy-area">
           <strategy *ngIf="strategy" [strategy]="strategy"></strategy>
         </div>
-        <a class="btn btn-lg btn-primary" (click)="newStrategy()">Let's see another</a>
+        <a class="btn btn-lg btn-primary" (click)="newStrategy()">Try another</a>
         <a class="btn btn-lg btn-default">Submit a strategy</a>
       </div>
     </div>
