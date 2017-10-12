@@ -19,49 +19,57 @@ import {StrategyService} from './strategy/strategy.service';
         </div>
       </div>
     </div>
-    <div class="row mid-page">
-      <div class="col-xs-12 col-md-8 col-md-offset-2">
-        <div class="strategy-area">
-          <strategy *ngIf="strategy" [strategy]="addStrategyComponent?.strategy || strategy"></strategy>
+    <div class="mid-page">
+      <div class="row">
+        <div class="col-xs-12 col-md-8 col-md-offset-2">
+          <div class="strategy-area">
+            <strategy *ngIf="strategy" [strategy]="addStrategyComponent?.strategy || strategy"></strategy>
+          </div>
+          <div class="text-center buttons">
+            <a class="btn btn-lg btn-primary" (click)="newStrategy()">Try another</a>
+            <p class="visible-xs"></p>
+            <a class="btn btn-lg btn-default" [class.active]="showSubmit"
+                (click)="showSubmit = !showSubmit">Submit a strategy</a>
+          </div>
+          <add-strategy #addStrategyComponent *ngIf="showSubmit"></add-strategy>
         </div>
-        <div class="text-center">
-          <a class="btn btn-lg btn-primary" (click)="newStrategy()">Try another</a>
-          <a class="btn btn-lg btn-default" [class.active]="showSubmit"
-              (click)="showSubmit = !showSubmit">Submit a strategy</a>
-        </div>
-        <add-strategy #addStrategyComponent *ngIf="showSubmit"></add-strategy>
       </div>
-      <div class="col-xs-12 footer">
-        <a class="btn btn-link" href="https://datafire.io">
-          <i class="fa fa-lightbulb-o"></i>
-          Hosted on DataFire
-        </a>
-        <a class="btn btn-link" href="https://github.com/DataFire-repos/oblique-strategies">
-          <i class="fa fa-github"></i>
-          Fork on GitHub
-        </a>
-      </div>
+    </div>
+    <div class="footer">
+      <a class="btn btn-link" href="https://datafire.io">
+        <i class="fa fa-lightbulb-o"></i>
+        Hosted on DataFire
+      </a>
+      <a class="btn btn-link" href="https://github.com/DataFire-repos/oblique-strategies">
+        <i class="fa fa-github"></i>
+        Fork on GitHub
+      </a>
     </div>
   </div>
   `,
   styles: [`
     .container {
-      height: 100%;
+      min-height: 100%;
       position: relative;
+      padding-bottom: 100px;
+    }
+    .intro {
+      margin-bottom: 150px;
     }
     .mid-page {
-      position: absolute;
       width: 100%;
-      top: 30%;
-      min-height: 70%;
       padding-bottom: 100px;
     }
     .footer {
       position: absolute;
       bottom: 0;
+      left: 0;
       width: 100%;
       padding: 20px;
       text-align: center;
+    }
+    .footer .btn-link {
+      font-size: 18px;
     }
     .footer .btn-link i {
       margin-right: 8px;
@@ -75,11 +83,18 @@ import {StrategyService} from './strategy/strategy.service';
       display:block;
       margin-top: 50px;
     }
-    .btn {
+    .buttons .btn {
       min-width: 200px;
     }
-    .btn-primary {
-      margin-right: 15px;
+    @media(min-width: 762px) {
+      .btn-primary {
+        margin-right: 15px;
+      }
+    }
+    @media(max-width: 761px) {
+      .btn-primary {
+        margin-bottom: 15px;
+      }
     }
   `]
 })
