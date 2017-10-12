@@ -39,7 +39,6 @@ const DATA_URL = "https://docs.google.com/spreadsheets/d/1Oy9fiRqmDQgLbTSjMyiYWX
       <div *ngIf="success" class="alert alert-success">
         Thanks!
       </div>
-      <strategy [strategy]="strategy"></strategy>
     </div>
   `,
   styles: [`

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import {StrategyService} from './strategy/strategy.service';
 
@@ -22,18 +22,16 @@ import {StrategyService} from './strategy/strategy.service';
     <div class="row mid-page">
       <div class="col-xs-12 col-md-8 col-md-offset-2">
         <div class="strategy-area">
-          <strategy *ngIf="strategy" [strategy]="strategy"></strategy>
+          <strategy *ngIf="strategy" [strategy]="addStrategyComponent?.strategy || strategy"></strategy>
         </div>
         <div class="text-center">
           <a class="btn btn-lg btn-primary" (click)="newStrategy()">Try another</a>
           <a class="btn btn-lg btn-default" [class.active]="showSubmit"
               (click)="showSubmit = !showSubmit">Submit a strategy</a>
         </div>
-        <add-strategy *ngIf="showSubmit"></add-strategy>
+        <add-strategy #addStrategyComponent *ngIf="showSubmit"></add-strategy>
       </div>
-    </div>
-    <div class="row footer">
-      <div class="col-xs-12">
+      <div class="col-xs-12 footer">
         <a class="btn btn-link" href="https://datafire.io">
           <i class="fa fa-lightbulb-o"></i>
           Hosted on DataFire
@@ -42,6 +40,7 @@ import {StrategyService} from './strategy/strategy.service';
           <i class="fa fa-github"></i>
           Fork on GitHub
         </a>
+      </div>
     </div>
   </div>
   `,
@@ -52,8 +51,10 @@ import {StrategyService} from './strategy/strategy.service';
     }
     .mid-page {
       position: absolute;
-      top: 30%;
       width: 100%;
+      top: 30%;
+      min-height: 70%;
+      padding-bottom: 100px;
     }
     .footer {
       position: absolute;
@@ -83,6 +84,7 @@ import {StrategyService} from './strategy/strategy.service';
   `]
 })
 export class AppComponent {
+  @ViewChild('addStrategyComponent') addStrategyComponent;
   strategy:any;
 
   constructor(private strategies:StrategyService) {
