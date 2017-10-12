@@ -8,11 +8,12 @@ function getColumnLetter(idx) {
 }
 
 const PAGE_SIZE = 100;
+const START_ROW = 2;
 
 module.exports = new datafire.Action({
   description: "",
   handler: (input, context) => {
-    let startRow = 1;
+    let startRow = START_ROW;
     let endRow = startRow + PAGE_SIZE - 1;
     let startCol = 1;
     let endCol = inputs.length + 1;
