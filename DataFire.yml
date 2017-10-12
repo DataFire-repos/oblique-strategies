@@ -21,16 +21,16 @@ setup:
       scopes:
         - 'https://www.googleapis.com/auth/spreadsheets'
 paths:
-  /pets:
-    get:
-      action: retrieve
-      accounts: {}
-    post:
-      action: create
-      accounts: {}
   '/docs/{filename}':
     get:
       action: lucybot_docs/serve
+      accounts: {}
+  /strategies:
+    post:
+      action: create
+      accounts: {}
+    get:
+      action: retrieve
       accounts: {}
 options:
   cors: true
