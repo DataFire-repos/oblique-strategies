@@ -28,7 +28,7 @@ module.exports = new datafire.Action({
       .then(_ => google_sheets.spreadsheets.values.append({
         spreadsheetId: context.variables.spreadsheet_id,
         range: "A1:A" + INPUTS.length,
-        valueInputOption: "USER_ENTERED",
+        valueInputOption: "RAW",
         body: {
           values: [
             INPUTS.map(i => input[i.title])
