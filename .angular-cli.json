@@ -19,9 +19,12 @@
         "testTsconfig": "tsconfig.spec.json",
         "prefix": "app",
         "styles": [
-          "styles.css"
+          "styles/styles.scss"
         ],
-        "scripts": [],
+        "scripts": [
+          "../../node_modules/jquery/dist/jquery.min.js",
+          "../../node_modules/bootstrap/dist/js/bootstrap.min.js"
+        ],
         "environmentSource": "environments/environment.ts",
         "environments": {
           "dev": "environments/environment.ts",
@@ -43,9 +46,12 @@
         "testTsconfig": "tsconfig.spec.json",
         "prefix": "app",
         "styles": [
-          "styles.css"
+          "styles/styles.scss"
         ],
-        "scripts": [],
+        "scripts": [
+          "../../node_modules/jquery/dist/jquery.min.js",
+          "../../node_modules/bootstrap/dist/js/bootstrap.min.js"
+        ],
         "environmentSource": "environments/environment.ts",
         "environments": {
           "dev": "environments/environment.ts",
@@ -61,15 +67,15 @@
     "lint": [
       {
         "project": "web/src/tsconfig.app.json",
-        "exclude": "**/node_modules/**"
+        "exclude": "../../node_modules/**"
       },
       {
         "project": "web/src/tsconfig.spec.json",
-        "exclude": "**/node_modules/**"
+        "exclude": "../../node_modules/**"
       },
       {
         "project": "e2e/tsconfig.e2e.json",
-        "exclude": "**/node_modules/**"
+        "exclude": "../../node_modules/**"
       }
     ],
     "test": {

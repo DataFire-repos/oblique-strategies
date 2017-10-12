@@ -1,5 +1,5 @@
 {
-  "name": "ng-universal-demo",
+  "name": "oblique-strategies",
   "version": "0.0.0",
   "license": "MIT",
   "repository": {
@@ -51,8 +51,11 @@
     "@angular/compiler-cli": "^4.2.4",
     "@angular/language-service": "^4.2.4",
     "@types/node": "^8.0.30",
+    "bootstrap": "^3.3.7",
+    "bootstrap-sass": "^3.3.7",
     "cpy-cli": "^1.0.1",
     "http-server": "^0.10.0",
+    "jquery": "^3.2.1",
     "reflect-metadata": "^0.1.10",
     "ts-loader": "^2.3.7",
     "typescript": "~2.3.3"
