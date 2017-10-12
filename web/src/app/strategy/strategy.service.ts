@@ -34,5 +34,9 @@ export class StrategyService {
     return this.http.post(BASE_URL + '/strategies', JSON.stringify(strategy), {headers})
       .toPromise()
       .then(data => data.json())
+      .catch(e => {
+        if (e.json) e = e.json();
+        throw e;
+      })
   }
 }
