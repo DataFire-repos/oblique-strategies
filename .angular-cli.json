@@ -19,6 +19,7 @@
         "testTsconfig": "tsconfig.spec.json",
         "prefix": "app",
         "styles": [
+          "../../node_modules/font-awesome/css/font-awesome.min.css",
           "styles/styles.scss"
         ],
         "scripts": [
@@ -46,6 +47,7 @@
         "testTsconfig": "tsconfig.spec.json",
         "prefix": "app",
         "styles": [
+          "../../node_modules/font-awesome/css/font-awesome.min.css",
           "styles/styles.scss"
         ],
         "scripts": [

@@ -32,6 +32,17 @@ import {StrategyService} from './strategy/strategy.service';
         <add-strategy *ngIf="showSubmit"></add-strategy>
       </div>
     </div>
+    <div class="row footer">
+      <div class="col-xs-12">
+        <a class="btn btn-link" href="https://datafire.io">
+          <i class="fa fa-lightbulb-o"></i>
+          Hosted on DataFire
+        </a>
+        <a class="btn btn-link" href="https://github.com/DataFire-repos/oblique-strategies">
+          <i class="fa fa-github"></i>
+          Fork on GitHub
+        </a>
+    </div>
   </div>
   `,
   styles: [`
@@ -43,6 +54,16 @@ import {StrategyService} from './strategy/strategy.service';
       position: absolute;
       top: 30%;
       width: 100%;
+    }
+    .footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+    }
+    .footer .btn-link i {
+      margin-right: 8px;
     }
 
     .strategy-area {
