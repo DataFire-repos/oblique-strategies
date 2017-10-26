@@ -18,7 +18,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 3000 --host 0.0.0.0",
-    "build": "ng build",
+    "clean": "rm -rf docs && rm -rf dist",
+    "build": "npm run clean && npm run build:static && cp -r dist/browser docs",
     "build:client-and-server-bundles": "ng build --prod && ng build --prod --app 1 --output-hashing=false",
     "build:static": "npm run build:client-and-server-bundles && npm run webpack:server && npm run generate:static",
     "build:dynamic": "npm run build:client-and-server-bundles && npm run webpack:server",
