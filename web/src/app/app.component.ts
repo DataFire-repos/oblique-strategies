@@ -36,11 +36,11 @@ import {StrategyService} from './strategy/strategy.service';
       </div>
     </div>
     <div class="footer">
-      <a class="btn btn-link" href="https://datafire.io">
+      <a class="btn btn-link" href="https://datafire.io" target="_blank">
         <i class="fa fa-lightbulb-o"></i>
         Hosted on DataFire
       </a>
-      <a class="btn btn-link" href="https://github.com/DataFire-repos/oblique-strategies">
+      <a class="btn btn-link" href="https://github.com/DataFire-repos/oblique-strategies" target="_blank">
         <i class="fa fa-github"></i>
         Fork on GitHub
       </a>
