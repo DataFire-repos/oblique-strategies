@@ -7,7 +7,7 @@ function getColumnLetter(idx) {
   return String.fromCharCode(idx + 64);
 }
 
-const PAGE_SIZE = 100;
+const PAGE_SIZE = 1000;
 const START_ROW = 2;
 
 module.exports = new datafire.Action({
@@ -21,6 +21,7 @@ module.exports = new datafire.Action({
       .then(_ => google_sheets.spreadsheets.values.get({
         spreadsheetId: context.variables.spreadsheet_id,
         range: getColumnLetter(startCol) + startRow + ':' + getColumnLetter(endCol) + endRow,
+        valueRenderOption: "UNFORMATTED_VALUE",
       }, context))
       .then(data => {
         let rows = (data.values || []).map((row, rowNum) => {
