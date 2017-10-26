@@ -23,7 +23,7 @@
     "build:static": "npm run build:client-and-server-bundles && npm run webpack:server && npm run generate:static",
     "build:dynamic": "npm run build:client-and-server-bundles && npm run webpack:server",
     "generate:static": "cd dist && node prerender",
-    "webpack:server": "webpack --config webpack.server.config.js --progress --colors",
+    "webpack:server": "webpack --config web/webpack.server.config.js --context ./web --progress --colors",
     "serve:static": "cd dist/browser && http-server",
     "serve:dynamic": "node dist/server"
   },

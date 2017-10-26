@@ -101,6 +101,7 @@ import {StrategyService} from './strategy/strategy.service';
 export class AppComponent {
   @ViewChild('addStrategyComponent') addStrategyComponent;
   strategy:any;
+  showSubmit:boolean;
 
   constructor(private strategies:StrategyService) {
     this.newStrategy();
