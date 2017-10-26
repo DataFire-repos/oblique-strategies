@@ -75,6 +75,10 @@ MIT
 MIT
 MIT
 
+@angular/animations@4.4.4
+MIT
+MIT
+
 @angular/forms@4.4.4
 MIT
 MIT
