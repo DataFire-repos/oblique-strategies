@@ -1,6 +1,16 @@
 import { Component, ViewChild } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import {StrategyService} from './strategy/strategy.service';
+import {
+    trigger,
+    state,
+    style,
+    transition,
+    animate,
+    keyframes
+ } from '@angular/animations';
+
+const ANIMATION_DURATION = 100;
 
 @Component({
   selector: 'app-root',
@@ -10,6 +20,9 @@ import {StrategyService} from './strategy/strategy.service';
       <div class="col-xs-12">
         <div class="intro text-center">
           <h1>Oblique Strategies for Programmers</h1>
+          <p>
+            Random tips for building, debugging, and overcoming creative blocks.
+          </p>
           <p>
             Inspired by
             <a taget="_blank" href="https://en.wikipedia.org/wiki/Oblique_Strategies">
@@ -23,7 +36,7 @@ import {StrategyService} from './strategy/strategy.service';
       <div class="row">
         <div class="col-xs-12 col-md-8 col-md-offset-2">
           <div class="strategy-area">
-            <strategy *ngIf="strategy" [strategy]="addStrategyComponent?.strategy || strategy"></strategy>
+            <strategy *ngIf="strategy" [strategy]="addStrategyComponent?.strategy || strategy" [@newStrategy]="animate"></strategy>
           </div>
           <div class="text-center buttons">
             <a class="btn btn-lg btn-primary" (click)="newStrategy()">Try another</a>
@@ -79,8 +92,12 @@ import {StrategyService} from './strategy/strategy.service';
       height: 150px;
     }
 
+    strategy {
+      display: block;
+      margin-bottom: 18px;
+    }
     add-strategy {
-      display:block;
+      display: block;
       margin-top: 50px;
     }
     .buttons .btn {
@@ -96,10 +113,23 @@ import {StrategyService} from './strategy/strategy.service';
         margin-bottom: 15px;
       }
     }
-  `]
+  `],
+    animations: [
+        trigger('newStrategy', [
+            state('inactive', style({
+                transform: 'scale(1)',
+            })),
+            state('active', style({
+                transform: 'scale(1.1)',
+            })),
+            transition('* => active', animate(ANIMATION_DURATION + 'ms ease-in')),
+            transition('active => inactive', animate(ANIMATION_DURATION + 'ms ease-out'))
+        ]),
+    ]
 })
 export class AppComponent {
   @ViewChild('addStrategyComponent') addStrategyComponent;
+  animate:string='inactive';
   strategy:any;
   showSubmit:boolean;
 
@@ -108,8 +138,11 @@ export class AppComponent {
   }
 
   newStrategy() {
+    this.animate = 'active';
+    setTimeout(() => this.animate = 'inactive', ANIMATION_DURATION);
+    let current = this.strategy;
     this.strategy = null;
-    this.strategies.getRandomStrategy()
+    this.strategies.getRandomStrategy(current)
       .then(strat => this.strategy = strat);
   }
 }

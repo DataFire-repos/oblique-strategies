@@ -19,13 +19,17 @@ export class StrategyService {
       .then(strats => this.strategies = strats)
   }
 
-  getRandomStrategy() {
+  getRandomStrategy(strategyToAvoid=null) {
     if (!this.strategies.length) {
       return new Promise(resolve => setTimeout(resolve, 100))
         .then(_ => this.getRandomStrategy())
     }
     let idx = Math.floor(Math.random() * this.strategies.length);
-    return Promise.resolve(this.strategies[idx]);
+    let strat = this.strategies[idx];
+    if (strat === strategyToAvoid) {
+      return this.getRandomStrategy(strategyToAvoid);
+    }
+    return Promise.resolve(strat);
   }
 
   addStrategy(strategy) {
