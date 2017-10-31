@@ -89,7 +89,7 @@ const ANIMATION_DURATION = 100;
     }
 
     .strategy-area {
-      height: 150px;
+      min-height: 150px;
     }
 
     strategy {
