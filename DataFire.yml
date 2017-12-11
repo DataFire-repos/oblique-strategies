@@ -6,6 +6,12 @@ actions:
 ignore:
   - docs/
   - web/
+  - node_modules/@angular
+  - node_modules/jquery
+  - node_modules/typescript
+  - node_modules/rxjs
+  - node_modules/@angular-devkit
+  - node_modules/caniuse-db
 
 setup:
   variables:
