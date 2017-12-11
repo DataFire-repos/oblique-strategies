@@ -2,6 +2,11 @@ actions:
   create: ./create.js
   retrieve: ./retrieve.js
   make_spreadsheet: ./make_spreadsheet.js
+  
+ignore:
+  - docs/\*
+  - .git/\*
+
 setup:
   variables:
     spreadsheet_id:
