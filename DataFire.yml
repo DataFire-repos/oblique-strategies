@@ -4,8 +4,8 @@ actions:
   make_spreadsheet: ./make_spreadsheet.js
   
 ignore:
-  - docs/\*
-  - .git/\*
+  - docs/
+  - web/
 
 setup:
   variables:
